@@ -1,3 +1,5 @@
+"""Create melon sellability report using Melon Class and MelonType Class"""
+
 ############
 # Part 1   #
 ############
@@ -18,7 +20,9 @@ class MelonType:
         self.name = name
         self.pairings = []
 
-        # Fill in the rest
+    def __repr__(self):
+        """Show info about melontype."""
+        return f"""<MelonType name={self.name}>"""
 
     def add_pairing(self, pairing):
         """Add a food pairing to the instance's pairings list."""
@@ -100,7 +104,7 @@ class Melon:
             return False
 
 
-def make_melons(melon_types):
+def make_melons(melon_types: list):
     """Returns a list of Melon objects."""
     melons_dict = make_melon_type_lookup(melon_types)
     melon1 = Melon(melons_dict["yw"], 8, 7, 2, "Sheila")
@@ -117,5 +121,9 @@ def make_melons(melon_types):
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
+    for melon in melons:
+        harvested_by = f"Harvested by {melon.harvested_by}"
+        field = f"from Field {melon.harvested_field}"
+        sellable = "(CAN BE SOLD)" if melon.is_sellable() else "(NOT SELLABLE)"
 
-    # Fill in the rest
+        print(f"{harvested_by} {field} {sellable}")
