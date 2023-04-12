@@ -96,6 +96,10 @@ class Melon:
         self.harvested_field = harvested_field
         self.harvested_by = harvested_by
 
+    def __repr__(self):
+        """Show info about melontype."""
+        return f"""<Melon type={self.melon_type}>"""
+
     def is_sellable(self):
         """Returns True or False if melon is sellable"""
         if self.shape_rating > 5 and self.color_rating > 5 and self.harvested_field != 3:
