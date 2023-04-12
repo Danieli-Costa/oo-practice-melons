@@ -85,8 +85,6 @@ def make_melon_type_lookup(melon_types):
 class Melon:
     """A melon in a melon harvest."""
 
-    # Fill in the rest
-    # Needs __init__ and is_sellable methods
     def __init__(self, melon_type, shape_rating, color_rating, harvested_field, harvested_by):
         self.melon_type = melon_type
         self.shape_rating = shape_rating
@@ -104,8 +102,17 @@ class Melon:
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
-
-    # Fill in the rest
+    melons_dict = make_melon_type_lookup(melon_types)
+    melon1 = Melon(melons_dict["yw"], 8, 7, 2, "Sheila")
+    melon2 = Melon(melons_dict["yw"], 3, 4, 2, "Sheila")
+    melon3 = Melon(melons_dict["yw"], 9, 8, 3, "Sheila")
+    melon4 = Melon(melons_dict["cas"], 10, 6, 35, "Sheila")
+    melon5 = Melon(melons_dict["cren"], 8, 9, 35, "Michael")
+    melon6 = Melon(melons_dict["cren"], 8, 2, 35, "Michael")
+    melon7 = Melon(melons_dict["cren"], 2, 3, 4, "Michael")
+    melon8 = Melon(melons_dict["musk"], 6, 7, 4, "Michael")
+    melon9 = Melon(melons_dict["yw"], 7, 10, 3, "Sheila")
+    return [melon1, melon2, melon3, melon4, melon5, melon6, melon7, melon8, melon9]
 
 
 def get_sellability_report(melons):
